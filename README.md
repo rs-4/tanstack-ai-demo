@@ -175,30 +175,6 @@ docker-compose down -v
 
 ---
 
-### Option 4: Cloudflare Pages
-
-#### 1. Configure Environment
-
-```bash
-cp .env.example .env.local
-```
-
-Edit `.env.local` and set `DEPLOY_TARGET=cloudflare`.
-
-#### 2. Build for Cloudflare
-
-```bash
-bun run build:cloudflare
-```
-
-#### 3. Deploy to Cloudflare
-
-```bash
-bun run deploy
-```
-
-> **Note:** For Cloudflare deployment, you'll need to configure your database connection using Cloudflare's Hyperdrive or an external PostgreSQL provider like Neon.
-
 ## 📁 Project Structure
 
 ```
