@@ -4,6 +4,7 @@ import { nitro } from 'nitro/vite'
 import viteReact from '@vitejs/plugin-react'
 import viteTsConfigPaths from 'vite-tsconfig-paths'
 import tailwindcss from '@tailwindcss/vite'
+import { cloudflare } from '@cloudflare/vite-plugin'
 
 // Deployment target: 'cloudflare' or 'bun' (default)
 const isCloudflare = process.env.DEPLOY_TARGET === 'cloudflare'
@@ -18,7 +19,7 @@ const config = defineConfig({
     }),
     tailwindcss(),
     tanstackStart(),
-    nitro({ preset: nitroPreset }),
+    cloudflare({ viteEnvironment: { name: 'ssr' } }),
     viteReact(),
   ],
   optimizeDeps: {
